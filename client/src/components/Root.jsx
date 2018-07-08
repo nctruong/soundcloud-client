@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Router from './Router';
+import Header from './Header';
+import PlayerContainer from '../containers/PlayerContainer';
 
 // Clarify the structure of Props
 const propTypes = {
@@ -27,8 +29,11 @@ class Root extends Component {
     const { router, routes } = this.props;
     return (
       <div>
-        Root Component
-        <Router router={router} routes={routes} />
+        <Header />
+        <div className="container">
+          <Router router={router} routes={routes} />
+          <PlayerContainer />
+        </div>
       </div>
     );
   }

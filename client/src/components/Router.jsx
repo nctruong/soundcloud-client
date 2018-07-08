@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SongsContainer from '../containers/SongsContainer';
 
 const propTypes = {
   router: PropTypes.shape({
@@ -20,7 +19,6 @@ const propTypes = {
 // }
 const Router = ({ router, routes }) => {
   const { path } = router.route;
-  console.log({ path })
   if (path in routes) {
     const Component = routes[path];
 

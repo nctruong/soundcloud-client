@@ -6,4 +6,4 @@ const constructUrl = url => `${API_HOSTNAME}${url}${url.indexOf('?') === -1 ? '?
 
 
 export const SONG_URL = constructUrl('/tracks/:id');
-export const SONGS_URL = constructUrl('/tracks?linked_partitioning=1&limit=50&offset=0');
+export const SONGS_URL = constructUrl('/tracks.json');

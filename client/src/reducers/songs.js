@@ -1,15 +1,17 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  items: [],
+  songs: [],
 };
 
-export default function playlists(state = initialState, action) {
+export default function fechSongs(state = initialState, action) {
+  console.log(action);
+  console.log(action.songs);
   switch (action.type) {
     case types.FETCH_SONGS_SUCCESS:
       return {
         ...state,
-        futureUrl: action.futureUrl,
+        songs: action.songs,
       };
     default:
       return state;
