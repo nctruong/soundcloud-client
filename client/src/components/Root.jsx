@@ -32,7 +32,9 @@ class Root extends Component {
         <Header />
         <div className="container">
           <Router router={router} routes={routes} />
-          <PlayerContainer />
+          <div className="player">
+            <PlayerContainer />
+          </div>
         </div>
       </div>
     );
