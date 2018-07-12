@@ -9,11 +9,21 @@ const propTypes = {
 }
 
 class Song extends Component {
+
+  playSong(e) {
+    console.log('song' + e.target.value);
+  }
+
   render() {
     return (
-      <div className="song info">
-        <div className="title">Name: {this.props.song.title}</div>
-        <div className="desc">Genre: {this.props.song.description}</div>
+      <div className="song info">`
+        <div className="title">
+          <a onClick={(e) => this.playSong(e)}>Name: {this.props.song.title}</a>
+        </div>
+        <div className="desc">
+          <p>Description: {this.props.song.description}</p>
+          <p>Author: Will</p>
+        </div>
       </div>
     );
   }

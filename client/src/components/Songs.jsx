@@ -47,21 +47,31 @@ class Songs extends Component {
     return (
       <ul className="songs">
         {
-          this.props.songs.map(song => (
+          this.props.songs.map((song, idx) => (
             <li className="song" key={song.id}>
               <time dateTime="2014-07-20">
-                <span className="day">4</span>
+                <span className="day">{idx}</span>
                 <span className="month">Jul</span>
                 <span className="year">2014</span>
                 <span className="time">ALL DAY</span>
               </time>
-              <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+              <img alt="Independence Day" src={song.artwork_url === '0' ? 'http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg' : song.artwork_url} />
               <Song song={song} />
               <div className="social">
                 <ul>
                   <li className="facebook" >
                     <a href="#facebook">
                       <span className="fa fa-facebook" />
+                    </a>
+                  </li>
+                  <li className="twitter" >
+                    <a href="#twitter">
+                      <span className="fa fa-twitter" />
+                    </a>
+                  </li>
+                  <li className="linkedin" >
+                    <a href="#linkedin">
+                      <span className="fa fa-linkedin" />
                     </a>
                   </li>
                 </ul>
