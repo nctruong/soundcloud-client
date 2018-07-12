@@ -29,7 +29,9 @@ class Root extends Component {
     const { router, routes } = this.props;
     return (
       <div>
-        <Header />
+        <div className="header">
+          <Header />
+        </div>
         <div className="container">
           <Router router={router} routes={routes} />
           <div className="player">

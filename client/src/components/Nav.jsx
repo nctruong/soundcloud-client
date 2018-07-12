@@ -12,7 +12,7 @@ const Nav = state => (
       <li className="main-navlinks"><a href="#">Blog</a></li>
       <li className="main-navlinks"><a href="#">Vlog</a></li>
       <li className="main-navlinks">
-        <button className="btn-outline-dark">Hire Me</button>
+        {/*<button className="btn-outline-dark">Hire Me</button>*/}
       </li>
       <li className="social-navlinks"><a href="#" target="_blank"><i className="fab fa-2x fa-instagram"></i></a></li>
       <li className="social-navlinks"><a href="#" target="_blank"><i className="fab fa-2x fa-facebook"></i></a></li>

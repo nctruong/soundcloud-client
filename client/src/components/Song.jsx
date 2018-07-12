@@ -11,9 +11,9 @@ const propTypes = {
 class Song extends Component {
   render() {
     return (
-      <div className="song">
-        <p>Name: {this.props.song.title}</p>
-        <p>Genre: {this.props.song.description}</p>
+      <div className="song info">
+        <div className="title">Name: {this.props.song.title}</div>
+        <div className="desc">Genre: {this.props.song.description}</div>
       </div>
     );
   }

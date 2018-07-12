@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 export default class Player extends Component {
   render() {
     return (
-      <div className="col-md-12">
+      <div className="player col-md-12">
         <ReactPlayer
           controls
           width

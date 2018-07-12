@@ -45,11 +45,27 @@ class Songs extends Component {
     const { songs } = this.props.songs;
     console.log(`Songs.jsx: ${songs}`);
     return (
-      <ul className="list-group">
+      <ul className="songs">
         {
           this.props.songs.map(song => (
-            <li className="list-group-item" key={song.id}>
+            <li className="song" key={song.id}>
+              <time dateTime="2014-07-20">
+                <span className="day">4</span>
+                <span className="month">Jul</span>
+                <span className="year">2014</span>
+                <span className="time">ALL DAY</span>
+              </time>
+              <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
               <Song song={song} />
+              <div className="social">
+                <ul>
+                  <li className="facebook" >
+                    <a href="#facebook">
+                      <span className="fa fa-facebook" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
           ))
         }
