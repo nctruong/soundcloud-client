@@ -1,6 +1,6 @@
 // URL for involving Api
 
-const API_HOSTNAME = '//localhost:3000';
+const API_HOSTNAME = 'http://www.dlzones.com';
 export const CLIENT_ID = '';
 
 const constructUrl = url => `${API_HOSTNAME}${url}${url.indexOf('?') === -1 ? '?' : '&'}client_id=${CLIENT_ID}`;

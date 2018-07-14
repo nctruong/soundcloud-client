@@ -10,7 +10,7 @@ export const fetchSongsSuccess = songs => ({
 export const fetchSongs = () => async (dispatch) => {
   console.log('fetchSongs. before calling api')
   const json = await axios.get(SONGS_URL);
-  const songs = json.data.collection;
+  const songs = json.data;
   console.log(`fetchSongs: ${JSON.stringify(songs)}, url: ${SONGS_URL}`)
 
   dispatch(fetchSongsSuccess(songs));
