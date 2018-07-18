@@ -5,7 +5,6 @@ import playingSong from './player';
 
 const rootReducer = combineReducers({
   songs: fetchSongs,
-  router,
   playingSong,
 });
 

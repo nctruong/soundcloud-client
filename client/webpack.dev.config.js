@@ -4,6 +4,7 @@ const OfflinePlugin = require('offline-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
+
 module.exports = {
   context: path.resolve('client/src/'),
   devtool: 'eval',
@@ -53,5 +54,6 @@ module.exports = {
     host: '0.0.0.0',
     hot: true,
     port: '8080',
+    historyApiFallback: true,
   },
 };

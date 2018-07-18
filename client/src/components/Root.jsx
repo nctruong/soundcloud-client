@@ -1,43 +1,36 @@
+import { BrowserRouter, Router, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Router from './Router';
 import Header from './Header';
 import PlayerContainer from '../containers/PlayerContainer';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import SongsContainer from "../containers/SongsContainer";
+import SongsContainer from '../containers/SongsContainer';
+import { INDEX_PATH, SONGS_PATH } from '../constants/RouterConstants';
+import Test from './Test';
 
 const propTypes = {
-  initRouter: PropTypes.func.isRequired,
-  router: PropTypes.shape({
-    keys: PropTypes.shape({}),
-    options: PropTypes.shape({}),
-    path: PropTypes.string,
-  }).isRequired,
-  routes: PropTypes.shape({}).isRequired,
   playSong: PropTypes.func.isRequired,
 };
-class Root extends Component {
-  componentWillMount() {
-    const { initRouter } = this.props;
-    initRouter();
-  }
-  render() {
-    const { router, routes } = this.props;
-    return (
-      <div>
-        <div className="header">
-          <Header />
-        </div>
-        <div className="container">
-          <Router router={router} routes={routes} />
-        </div>
-        <div className="player">
-          <PlayerContainer playSong={this.props.playSong} />
-        </div>
-      </div>
-    );
-  }
-}
+
+const Root = (props) => (
+  <div>
+    {/*<div className="header">*/}
+      {/*<Header />*/}
+    {/*</div>*/}
+    <div className="container">
+      <BrowserRouter>
+        <switch>
+          {/*<div>*/}
+            <Route exact path="/" component={SongsContainer} />
+            <Route path="/nav" component={Test} />
+          {/*</div>*/}
+        </switch>
+      </BrowserRouter>
+    </div>
+    <div className="player">
+      <PlayerContainer playSong={props.playSong} />
+    </div>
+  </div>
+);
 
 Root.propTypes = propTypes;
 export default Root;

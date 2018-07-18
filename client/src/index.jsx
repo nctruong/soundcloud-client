@@ -2,6 +2,7 @@
 
 import 'babel-polyfill';
 import 'isomorphic-fetch';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import OfflinePluginRuntime from 'offline-plugin/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';

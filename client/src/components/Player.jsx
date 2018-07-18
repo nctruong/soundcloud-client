@@ -9,7 +9,6 @@ export default class Player extends Component {
     return (
       <ReactPlayer
         controls={false}
-        width
         height={80}
         playing
         loop={false}
