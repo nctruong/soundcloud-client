@@ -6,19 +6,21 @@ const propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
+  playSong: PropTypes.func.isRequired,
 }
 
 class Song extends Component {
 
-  playSong(e) {
-    console.log('song' + e.target.value);
+  playSong = (e) => {
+    const playSong = this.props.playSong;
+    playSong(this.props.song)
   }
 
   render() {
     return (
       <div className="song info">`
         <div className="title">
-          <a onClick={(e) => this.playSong(e)}>Name: {this.props.song.title}</a>
+          <a onClick={this.playSong} >Name: {this.props.song.title}</a>
         </div>
         <div className="desc">
           <p>Description: {this.props.song.description}</p>

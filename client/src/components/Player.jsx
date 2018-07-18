@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
 export default class Player extends Component {
+  componentWillMount() {
+  }
   render() {
+    const playingSong = this.props.playingSong
     return (
       <ReactPlayer
-        controls
+        controls={false}
         width
         height={80}
-        playing={false}
+        playing
         loop={false}
         wrapper={'div'}
-        url={'https://soundcloud.com/c-ng-nguy-n-c-521680842/ben-nhau-nu-cuoi-nguyen-duc-cuong-ft-vu-hanh-nguyen'}
+        url={playingSong.permalink_url}
       />
     );
   }

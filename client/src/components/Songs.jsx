@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Song from './Song';
 
-/* Clarify the prop types for component. The structure of props need to be clarified
- * because component receives props from Container.
- */
 const propTypes = {
   songs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -12,6 +9,7 @@ const propTypes = {
     description: PropTypes.string.isRequired,
   })).isRequired,
   fetchSongs: PropTypes.func.isRequired,
+  playSong: PropTypes.func.isRequired,
 };
 const defaultProps = {
   songs: [
@@ -32,18 +30,16 @@ class Songs extends Component {
   componentWillMount() {
     const { fetchSongs } = this.props;
     fetchSongs();
-    console.log('ended feching');
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { songs, fetchSongs } = this.props;
-    if (songs !== nextProps.songs) {
-      fetchSongs();
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { songs, fetchSongs } = this.props;
+  //   if (songs !== nextProps.songs) {
+  //     fetchSongs();
+  //   }
+  // }
+
   render() {
-    const { songs } = this.props.songs;
-    console.log(`Songs.jsx: ${songs}`);
     return (
       <ul className="songs">
         {
@@ -56,7 +52,7 @@ class Songs extends Component {
                 <span className="time">ALL DAY</span>
               </time>
               <img alt="Independence Day" src={song.artwork_url === '0' ? 'http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg' : song.artwork_url} />
-              <Song song={song} />
+              <Song song={song} playSong={this.props.playSong} />
               <div className="social">
                 <ul>
                   <li className="facebook" >

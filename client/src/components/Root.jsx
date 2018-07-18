@@ -3,29 +3,25 @@ import React, { Component } from 'react';
 import Router from './Router';
 import Header from './Header';
 import PlayerContainer from '../containers/PlayerContainer';
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+import SongsContainer from "../containers/SongsContainer";
 
-// Clarify the structure of Props
 const propTypes = {
-  initEnvironment: PropTypes.func.isRequired,
   initRouter: PropTypes.func.isRequired,
-  // paths: PropTypes.arrayOf(PropTypes.string).isRequired,
   router: PropTypes.shape({
     keys: PropTypes.shape({}),
     options: PropTypes.shape({}),
     path: PropTypes.string,
   }).isRequired,
   routes: PropTypes.shape({}).isRequired,
+  playSong: PropTypes.func.isRequired,
 };
 class Root extends Component {
   componentWillMount() {
-    // user {} to inspect props, mapping key.
-    const { initEnvironment, initRouter } = this.props;
-    // props are the callback functions so that we can execute them
-    initEnvironment();
+    const { initRouter } = this.props;
     initRouter();
   }
   render() {
-    // They were set in router reducer
     const { router, routes } = this.props;
     return (
       <div>
@@ -36,7 +32,7 @@ class Root extends Component {
           <Router router={router} routes={routes} />
         </div>
         <div className="player">
-          <PlayerContainer />
+          <PlayerContainer playSong={this.props.playSong} />
         </div>
       </div>
     );
@@ -44,5 +40,4 @@ class Root extends Component {
 }
 
 Root.propTypes = propTypes;
-// Component does not connect to redux
 export default Root;

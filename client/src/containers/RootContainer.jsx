@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import Root from '../components/Root';
 import SongsContainer from './SongsContainer';
-import { INDEX_PATH } from '../constants/RouterConstants';
-import { initEnvironment } from '../actions/EnvironmentActions';
+import { INDEX_PATH, SONGS_PATH } from '../constants/RouterConstants';
 import { initRouter } from '../actions/RouterActions';
+import { playSong } from '../actions/PlayerAction';
 
 const RootContainer = props => <Root {...props} />;
 
-// Define above props
 const mapStateToProps = state => {
   const { router } = state;
   return {
@@ -17,15 +16,16 @@ const mapStateToProps = state => {
     router,
     routes: {
       [INDEX_PATH]: SongsContainer,
+      [SONGS_PATH]: SongsContainer,
     },
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    initEnvironment,
     initRouter,
+    playSong,
   };
 }
-// Two extra props: initEnvironment & initRouter
+
 export default connect(mapStateToProps, mapDispatchToProps)(RootContainer);

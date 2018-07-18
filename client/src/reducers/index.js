@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import fetchSongs from './songs';
 import router from './router';
-import environment from './environment';
+import playingSong from './player';
 
 const rootReducer = combineReducers({
-  environment,
   songs: fetchSongs,
   router,
+  playingSong,
 });
 
 export default rootReducer;

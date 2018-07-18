@@ -1,5 +1,6 @@
-/* global fetch */
 import axios from 'axios';
 
-export const callApi = (url) =>
+const callApi = url =>
   axios.get(url)
+
+export default callApi;
