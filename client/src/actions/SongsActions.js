@@ -8,6 +8,6 @@ export const fetchSongs = () => async (dispatch) => {
   dispatch({
     type: types.FETCH_SONGS,
     songs,
+    playingSong: songs[0],
   });
 };
-

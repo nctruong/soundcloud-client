@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 
-export default class Player extends Component {
+const propType = {
+  playingSong: PropTypes.shape({
+    permalink_url: PropTypes.string.isRequired,
+  }).isRequired,
+}
+class Player extends Component {
   componentWillMount() {
   }
   render() {
-    const playingSong = this.props.playingSong
     return (
-      <ReactPlayer
-        controls={false}
-        height={80}
-        playing
-        loop={false}
-        wrapper={'div'}
-        url={playingSong.permalink_url}
-      />
+      <div className="player">
+        <ReactPlayer
+          controls={false}
+          height={80}
+          playing
+          loop={false}
+          wrapper={'div'}
+          url={this.props.playingSong.permalink_url}
+        />
+      </div>
     );
   }
 }
+
+Player.propTypes = propType;
+export default Player;
 

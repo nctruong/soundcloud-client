@@ -31,16 +31,16 @@ class Songs extends Component {
     fetchSongs();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { songs, fetchSongs } = this.props;
-    if (songs.length !== nextProps.songs.length) {
-      fetchSongs();
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { songs, fetchSongs } = this.props;
+  //   if (songs.length !== nextProps.songs.length) {
+  //     fetchSongs();
+  //   }
+  // }
 
   render() {
     const songs = this.props.songs.map((song) => (
-      <Song song={song} playSong={this.props.playSong} />
+      <Song song={song} playSong={this.props.playSong} key={song.id} />
     ));
 
     return (

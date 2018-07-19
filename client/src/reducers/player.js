@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   song: {
-    permalink_url: 'https://soundcloud.com/c-ng-nguy-n-c-521680842/ben-nhau-nu-cuoi-nguyen-duc-cuong-ft-vu-hanh-nguyen',
+    permalink_url: '',
   },
 }
 

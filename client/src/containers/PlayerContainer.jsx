@@ -6,7 +6,6 @@ const PlayerContainer = state => <Player {...state} />;
 
 const mapStateToProps = state => {
   return {
-    currentSong: state.songs.currentSong,
     playingSong: state.playingSong.song,
   };
 };
