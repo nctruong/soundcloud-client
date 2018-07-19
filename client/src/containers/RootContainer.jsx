@@ -10,6 +10,6 @@ const mapDispatchToProps = () => {
   return {
     playSong,
   };
-}
+};
 
 export default connect(mapDispatchToProps)(RootContainer);

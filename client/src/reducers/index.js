@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
+import { reduxTokenAuthReducer } from 'redux-token-auth';
 import fetchSongs from './songs';
-import router from './router';
 import playingSong from './player';
 
 const rootReducer = combineReducers({
+  reduxTokenAuth: reduxTokenAuthReducer,
   songs: fetchSongs,
   playingSong,
 });
