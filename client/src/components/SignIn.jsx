@@ -10,38 +10,38 @@ class SignIn extends Component {
     }
   }
 
-  // handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const {signInUser} = this.props;
-  //   const {
-  //     email,
-  //     password,
-  //   } = this.state;
-  //   await signInUser({email, password}).
-  //     then(() => {
-  //       const customHeaders = {
-  //         access_token: localStorage.getItem("access-token"),
-  //         client: localStorage.getItem("client"),
-  //         token_type: localStorage.getItem("token-type"),
-  //         uid: localStorage.getItem("uid"),
-  //       };
-  //       console.log("customHeaders: " + JSON.stringify(customHeaders));
-  //     }
-  //   );
-  //
-  //   this.setState({ redirect: true })
-  // };
-
-  // Using AXIOS
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
+    const {signInUser} = this.props;
     const {
       email,
       password,
     } = this.state;
-    signIn(email, password);
+    await signInUser({email, password}).
+      then(() => {
+        const customHeaders = {
+          access_token: localStorage.getItem("access-token"),
+          client: localStorage.getItem("client"),
+          token_type: localStorage.getItem("token-type"),
+          uid: localStorage.getItem("uid"),
+        };
+        console.log("customHeaders: " + JSON.stringify(customHeaders));
+      }
+    );
+
     this.setState({ redirect: true })
   };
+
+  // Using AXIOS
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const {
+  //     email,
+  //     password,
+  //   } = this.state;
+  //   signIn(email, password);
+  //   this.setState({ redirect: true })
+  // };
 
   handleInputChange = (e) => {
     const target = e.target;
