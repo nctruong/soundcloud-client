@@ -39,7 +39,12 @@ class Songs extends Component {
   // }
 
   render() {
-    const songs = this.props.songs.map((song) => (
+    const size = this.props.songs.length;
+    const col1Songs = this.props.songs.slice(0, size / 2).map(song => (
+      <Song song={song} playSong={this.props.playSong} key={song.id} />
+    ));
+
+    const col2Songs = this.props.songs.slice(size / 2, size).map(song => (
       <Song song={song} playSong={this.props.playSong} key={song.id} />
     ));
 
@@ -47,12 +52,12 @@ class Songs extends Component {
       <div>
         <div className="col-md-6">
           <ul className="songs">
-            {songs}
+            {col1Songs}
           </ul>
         </div>
         <div className="col-md-6">
           <ul className="songs">
-            {songs}
+            {col2Songs}
           </ul>
         </div>
       </div>
