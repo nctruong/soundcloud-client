@@ -1,12 +1,14 @@
-/* global axios */
+import axios from 'axios';
 import * as types from '../constants/ActionTypes';
 import { SONGS_URL } from '../constants/ApiConstants';
 
-
-
-export const fetchSongs = () => async (dispatch) => {
-  const json = await axios.get(SONGS_URL);
-  const songs = json.data;
+export const fetchSongs = (page = 1) => async (dispatch) => {
+  const response = await axios.get(SONGS_URL, {
+    params: {
+      page,
+    },
+  });
+  const songs = response.data;
   dispatch({
     type: types.FETCH_SONGS,
     songs,

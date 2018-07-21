@@ -1,7 +1,11 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  songs: [],
+  songs: {
+    count: 1,
+    per: 10,
+    tracks: [],
+  },
 };
 
 export default function fechSongs(state = initialState, action) {

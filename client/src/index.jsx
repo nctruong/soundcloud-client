@@ -36,6 +36,3 @@ if (module.hot) {
     render(RootContainer);
   });
 }
-
-window.axios = axios;
-
