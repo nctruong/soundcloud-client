@@ -18,7 +18,7 @@ const config = {
     email: '',
     password: '',
   },
-}
+};
 
 const {
   registerUser,

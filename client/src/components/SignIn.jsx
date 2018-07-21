@@ -1,10 +1,11 @@
+/* global axios */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import signIn from '../services/axios_service';
+import authHeaderKeys from '../auth/axios_header';
 
 class SignIn extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       redirect: false
     }
@@ -17,31 +18,15 @@ class SignIn extends Component {
       email,
       password,
     } = this.state;
-    await signInUser({email, password}).
-      then(() => {
-        const customHeaders = {
-          access_token: localStorage.getItem("access-token"),
-          client: localStorage.getItem("client"),
-          token_type: localStorage.getItem("token-type"),
-          uid: localStorage.getItem("uid"),
-        };
-        console.log("customHeaders: " + JSON.stringify(customHeaders));
-      }
-    );
+    await signInUser({email, password})
+      .then(() => {
+        authHeaderKeys.forEach((key) => {
+          axios.defaults.headers.common[key] = localStorage.getItem(key)
+        })
+      });
 
-    this.setState({ redirect: true })
-  };
-
-  // Using AXIOS
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const {
-  //     email,
-  //     password,
-  //   } = this.state;
-  //   signIn(email, password);
-  //   this.setState({ redirect: true })
-  // };
+    this.setState({ redirect: true });
+  }
 
   handleInputChange = (e) => {
     const target = e.target;
@@ -50,7 +35,7 @@ class SignIn extends Component {
 
     this.setState({
       [name]: value,
-    })
+    });
     console.log("this state: " + JSON.stringify(this.state));
   }
 
@@ -87,5 +72,5 @@ class SignIn extends Component {
       </div>
     );
   }
-}
+};
 export default SignIn;

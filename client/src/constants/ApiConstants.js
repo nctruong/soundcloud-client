@@ -1,7 +1,7 @@
 // URL for involving Api
 
-// const API_HOSTNAME = 'http://localhost:3000';
-const API_HOSTNAME = 'http://www.dlzones.com';
+const API_HOSTNAME = 'http://localhost:3000';
+// const API_HOSTNAME = 'http://www.dlzones.com';
 export const AUTH_URL = `${API_HOSTNAME}/auth`;
 export const CLIENT_ID = '';
 
