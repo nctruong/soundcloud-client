@@ -6,10 +6,11 @@ import { playSong } from '../actions/PlayerAction';
 
 const RootContainer = props => <Root {...props} />;
 
-const mapDispatchToProps = () => {
+const mapStateToProps = state => {
+  const currentUser = state.reduxTokenAuth.currentUser;
   return {
-    playSong,
+    currentUser,
   };
 };
 
-export default connect(mapDispatchToProps)(RootContainer);
+export default connect(mapStateToProps, null)(RootContainer);

@@ -4,14 +4,11 @@ import Header from './Header';
 import Router from './Router';
 
 const propTypes = {
-  playSong: PropTypes.func.isRequired,
+  currentUser: PropTypes.shape({}).isRequired,
 };
 
 const Root = (props) => (
   <div>
-    <div className="header">
-      <Header />
-    </div>
     <div className="container">
       <Router />
     </div>

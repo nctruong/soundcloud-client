@@ -8,7 +8,9 @@ const HomeContainer = props => <Home {...props} />;
 
 const mapStateToProps = (state) => {
   const { songs } = state;
+  const currentUser = state.reduxTokenAuth.currentUser;
   return {
+    currentUser,
     songs: songs.songs,
   };
 };

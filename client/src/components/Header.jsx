@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <Nav />
-      </div>
-    );
-  }
-}
-
+const Header = (props) => <Nav {...props} />;
 export default Header;

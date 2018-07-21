@@ -6,8 +6,9 @@ import authHeaderKeys from '../auth/axios_header';
 class SignIn extends Component {
   constructor(props) {
     super(props);
+    console.log('isSignedIn: ' + props.currentUser.isSignedIn);
     this.state = {
-      redirect: false
+      redirect: props.currentUser.isSignedIn ? true : false
     }
   }
 

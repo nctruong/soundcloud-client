@@ -19,4 +19,4 @@ const initialState = {
   // All your other state
 }
 
-export default initialState
+export default initialState;

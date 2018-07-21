@@ -9,7 +9,7 @@ const config = {
     provider: 'email',
     role: 'admin',
     uid: 'admin@gmail.com',
-    allow_password_change: false,
+    allow_password_change: true,
     name: 'admin',
     nickname: null,
     image: null,
