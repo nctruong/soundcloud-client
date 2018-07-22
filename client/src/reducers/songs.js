@@ -9,8 +9,6 @@ const initialState = {
 };
 
 export default function fechSongs(state = initialState, action) {
-  console.log(action);
-  console.log(action.songs);
   switch (action.type) {
     case types.FETCH_SONGS:
       return {

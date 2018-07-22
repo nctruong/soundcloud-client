@@ -1,4 +1,4 @@
-import axios from 'axios';
+/* global axios */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import authHeaderKeys from '../auth/axios_header';
@@ -23,7 +23,7 @@ class SignIn extends Component {
       .then(() => {
         authHeaderKeys.forEach((key) => {
           try {
-            axios.defaults.headers.common[key] = localStorage.getItem(key)
+            window.axios.defaults.headers.common[key] = localStorage.getItem(key)
           } catch (err) {
             console.log(err)
           }

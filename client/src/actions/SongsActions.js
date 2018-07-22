@@ -1,9 +1,9 @@
-import axios from 'axios';
+/* global window */
 import * as types from '../constants/ActionTypes';
 import { SONGS_URL } from '../constants/ApiConstants';
 
 export const fetchSongs = (page = 1) => async (dispatch) => {
-  const response = await axios.get(SONGS_URL, {
+  const response = await window.axios.get(SONGS_URL, {
     params: {
       page,
     },

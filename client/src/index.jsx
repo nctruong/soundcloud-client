@@ -1,5 +1,6 @@
 /* global document */
 /* global window */
+import axios from 'axios';
 import 'babel-polyfill';
 import 'isomorphic-fetch';
 import OfflinePluginRuntime from 'offline-plugin/runtime';
@@ -34,3 +35,5 @@ if (module.hot) {
     render();
   });
 }
+
+window.axios = axios;

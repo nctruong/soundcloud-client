@@ -27,6 +27,10 @@ class Songs extends Component {
       totalPage: null,
       activePage: 1
     };
+
+    if (this.props.songs.tracks == null) {
+      return null;
+    }
   }
 
   componentWillMount() {
@@ -45,10 +49,11 @@ class Songs extends Component {
     console.log(`active page is ${pageNumber}`);
     this.props.fetchSongs(pageNumber);
     this.setState({activePage: pageNumber});
-  }
+  };
 
   render() {
     const size = this.props.songs.per;
+
     const col1Songs = this.props.songs.tracks.slice(0, size / 2).map(song => (
       <Song song={song} playSong={this.props.playSong} key={song.id} />
     ));
