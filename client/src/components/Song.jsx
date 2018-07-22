@@ -27,7 +27,7 @@ class Song extends Component {
         <img alt="Independence Day" src={this.props.song.artwork_url === '0' ? 'http://www.bsmc.net.au/wp-content/uploads/No-image-available.jpg' : this.props.song.artwork_url} />
         <div className="song info">
           <div className="title">
-            <a onClick={this.playSong} >Name: {this.props.song.title}</a>
+            <a onClick={this.playSong} title="click to play" >Name: {this.props.song.title}</a>
           </div>
           <div className="desc">
             <p>Author: {}</p>
